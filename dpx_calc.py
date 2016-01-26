@@ -1,4 +1,6 @@
-# Import the text entry GUi functionality from easygui.
+#!/usr/bin/env python
+
+# Import the text entry GUI functionality from easygui.
 from easygui import multenterbox    
 
 # Create GUI that asks for user input
