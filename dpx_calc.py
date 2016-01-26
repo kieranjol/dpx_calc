@@ -20,15 +20,14 @@ if fieldValues[2]   == '10':
 elif fieldValues[2] == '16':
 	bitdepth     = '48'               # 16 bits * 3 components(RGB) = 48 bits
 
-evaluate = 
-	 (float(fieldValues[0])           # gets width
- 	 * float(fieldValues[1])          # multiples by height
- 	 * float(bitdepth)                # multiplies by bit depth per component
-	 /8 / 1024 / 1024 		  # these calcs turn the value from a bit into a megabyte	
- 	 * float(fieldValues[3])          # multiply by FPS
- 	 * 60                             # multiply by 60 to get how many megs for one second
- 	 * float(fieldValues[4])          # multiply by how many minutes
- 	 /1024 )                          # turn the value into gigabytes
+evaluate = (float(fieldValues[0])           # gets width
+ 	   * float(fieldValues[1])          # multiples by height
+ 	   * float(bitdepth)                # multiplies by bit depth per component
+	   /8 / 1024 / 1024 		  # these calcs turn the value from a bit into a megabyte	
+ 	   * float(fieldValues[3])          # multiply by FPS
+ 	   * 60                             # multiply by 60 to get how many megs for one second
+ 	   * float(fieldValues[4])          # multiply by how many minutes
+ 	   /1024 )                          # turn the value into gigabytes
  
 # prints the result to the screen
 print "%s minutes of footage will take up %s gigabytes of space" % (fieldValues[4], evaluate)
