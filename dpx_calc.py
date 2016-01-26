@@ -15,7 +15,7 @@ elif fieldValues[2] == '16':
 	bitdepth     = '48'       # 16 bits * 3 components(RGB) = 48 bits
 
 evaluate = (float(fieldValues[0]) # gets width
- * float(fieldValues[1])	  # multiples by height
+ * float(fieldValues[1])          # multiples by height
  * float(bitdepth)                # multiplies by bit depth per component
  //8 // 1024 // 1024 		  # these calcs turn the value from a bit into a megabyte	
  * float(fieldValues[3])          # multiply by FPS
