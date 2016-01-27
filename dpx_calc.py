@@ -14,11 +14,27 @@ fieldNames = ["Width",
 fieldValues = []  # we start with blanks for the values
 # The values will be stored as a list, eg [2048,1556,32,24,60]
 fieldValues = multenterbox(msg,title, fieldNames)
+while 1:
+    if fieldValues == None: break
+    errmsg = ""
+    if not fieldValues[2] in ('10','16'):
+        errmsg = errmsg + ('Only 10 and 16 bit is supported for now\n\n')	
+    for i in range(len(fieldNames)):
+      if fieldValues[i].strip() == "":
+        errmsg = errmsg + ('"%s" is a required field.\n\n' % fieldNames[i])
+
+      if fieldValues[i].isdigit() == False:
+        errmsg = errmsg + ('"%s" should only contain numbers!.\n\n' % fieldNames[i])
+
+
+    if errmsg == "": break # no problems found
+    fieldValues = multenterbox(errmsg, title, fieldNames, fieldValues)
+
 
 if fieldValues[2]   == '10':
-	bitdepth     = '32'                 # While 10 bits * 3 components = 30 bits, they are stored as 32 bits.
+	bitdepth     = 32                  # While 10 bits * 3 components = 30 bits, they are stored as 32 bits.
 elif fieldValues[2] == '16':
-	bitdepth     = '48'                 # 16 bits * 3 components(RGB) = 48 bits
+	bitdepth     = 48                  # 16 bits * 3 components(RGB) = 48 bits
 
 evaluate = (float(fieldValues[0])           # gets width
  	   * float(fieldValues[1])          # multiples by height
